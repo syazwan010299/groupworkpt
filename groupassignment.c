@@ -7,7 +7,7 @@ struct userInfo{
   char gamePiece; //X, Y, O
   int boardPos; //position of player
   int special; //Ignore this, this is for missing turns and shit.
-}
+};
 
 //void function for 3 players
 void choosesymbol2 (){
@@ -46,7 +46,7 @@ void displayline(){
     printf("\n___________________________________________________________________________________\t\n" );
 }
 //void function for how many players in the game
-void player (){
+void menu(){
   int number;//declare the variable for how many players
   printf("\n\nHow Many PLayers(MAX 3) : ");//get the number of players from user
   scanf("%d",&number);
@@ -118,7 +118,7 @@ void main (){
 
       case 2://multiplayer mode
       printf("HUMAN VS HUMAN");
-      player () ;break;
+      menu() ;break;
 
       default ://not of them
       printf("Thank you for playing this game");break;
