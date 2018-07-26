@@ -9,12 +9,20 @@ Want to move player X on the board?
 You can change the position using player[0].boardPos
 
 Just create you rown functions and pass the variable.
+
 Eg: 
+
 ---main---
+
 movePlayer(player[0].boardPos)
 
+
 ---function---
+
 void movePlayer(int x)
+
 {
-    //Do shit
+
+//Do shit
+
 }
