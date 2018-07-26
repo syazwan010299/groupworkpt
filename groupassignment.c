@@ -71,7 +71,7 @@ void main (){
   time_t t;
   srand  ( (unsigned) time(&t));
 
-  printf("\n %d",t );//rolling the dice
+  //rolling the dice
   while(c=='\n'){
     int a=rand() % 7;
     if(a == 0){
