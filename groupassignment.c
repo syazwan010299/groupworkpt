@@ -65,6 +65,21 @@ void player (){
 
 void main (){
 
+  ///rolling the dice
+  int b;  //declare the varibale for the dice
+  char c = '\n';
+  time_t t;
+  srand  ( (unsigned) time(&t));
+
+  printf("\n %d",t );//rolling the dice
+  while(c=='\n'){
+    int a=rand() % 7;
+    if(a == 0){
+      continue;
+    }
+      printf("\n %d",a);
+  c=getchar();
+}
   int a;  //declare the variable for the table
   int s;
   int id;
