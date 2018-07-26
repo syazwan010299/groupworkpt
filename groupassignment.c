@@ -73,22 +73,6 @@ void menu(){
 void main (){
   struct userInfo player[3]; // player[0] is X, player[1] is Y, player [2] is O
 
-  ///rolling the dice
-  int b;  //declare the varibale for the dice
-  char c = '\n';
-  time_t t;
-  srand  ( (unsigned) time(&t));
-
-  //rolling the dice
-  while(c=='\n'){
-    int a=rand() % 7;
-    if(a == 0){
-      continue;
-    }
-    printf("Rolling the dice...\n");
-      printf("\n %d",a);
-  c=getchar();
-}
   int a;  //declare the variable for the table
   int s;
   int id;
@@ -105,6 +89,7 @@ void main (){
   displayline();
 
   int choice;//declare the variable to choose whether single mode or multiplayer mode
+  int turn;//declare the variable to choose whether player or computer play first
 
   //choose whether single mode or multiplayer mode
   printf("\n\nOPTION 1 : Single player\n");
@@ -115,7 +100,8 @@ void main (){
     switch (choice){
       case 1://single mode
       printf("\nHUMAN VS COMPUTER\n" );
-      printf("\nLet's Play");break;
+      printf("\nLet's Play\n");
+      bot();break;//added the function to let player to choose who's going to play first
 
       case 2://multiplayer mode
       printf("HUMAN VS HUMAN");
@@ -128,5 +114,56 @@ void main (){
 
 
 
-
 }//end of the process
+
+void bot(){
+    int turn;//declare variable to let player play first or computer play first
+    char d;//char for enter button
+    printf("Press 1 to play first\n");
+    printf("Press 2 to let computer player first\n");
+    scanf("%d",&turn);
+
+      switch (turn){//to choose the turn
+      case 1:
+        printf("Your turn: \n");
+        printf("Press enter to roll the dice: \n");
+        getchar();//obtain the enter input
+        if (getchar()=='\n'){//if input is enter button
+        dice();//roll the dice
+        }else printf("Thank you for playing this game");//else will quit the game
+        break;
+
+      case 2:
+        printf("Computer's turn: \n");
+        dice();
+        break;
+
+      default:
+      printf("Thank you for playing this game");
+      break;
+
+      }
+
+    }//end of the switch case
+
+void dice(){
+      ///rolling the dice
+      int b;  //declare the varibale for the dice
+  char c = '\n';
+  time_t t;
+  srand  ( (unsigned) time(&t));
+
+  //rolling the dice
+  while(c=='\n'){
+    int a=rand() % 7;
+    if(a == 0){
+      continue;
+    }else{
+    printf("Rolling the dice...\n");
+      printf("\n%d",a);
+  c=getchar();
+  break;
+    }
+  }
+}
+
