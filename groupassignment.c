@@ -3,6 +3,12 @@
 #include <math.h>
 #include <time.h>
 
+struct userInfo{
+  char gamePiece; //X, Y, O
+  int boardPos; //position of player
+  int special; //Ignore this, this is for missing turns and shit.
+}
+
 //void function for 3 players
 void choosesymbol2 (){
   int c;
@@ -64,6 +70,7 @@ void player (){
 }//end of the void player
 
 void main (){
+  struct userInfo player[3]; // player[0] is X, player[1] is Y, player [2] is O
 
   ///rolling the dice
   int b;  //declare the varibale for the dice
