@@ -6,7 +6,6 @@
 //void function for 3 players
 void choosesymbol2 (){
   int c;
-  
   char n,m,b;//declare variable for the character
   printf("\n\nThe Character are : + , -, *");//declare what is the character
   printf("\n\nPlease Choose your character : ");//first character
