@@ -77,6 +77,7 @@ void main (){
     if(a == 0){
       continue;
     }
+    printf("Rolling the dice...\n");
       printf("\n %d",a);
   c=getchar();
 }
