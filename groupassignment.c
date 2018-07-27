@@ -3,13 +3,96 @@
 #include <math.h>
 #include <time.h>
 
-void bot (int);//function prototype for bot
 
 struct userInfo{
   char gamePiece; //X, Y, O
   int boardPos; //position of player
   int special; //Ignore this, this is for missing turns and shit.
 };
+
+//function for declare who play first for 2 players
+void bot1(){
+    int turn;//declare variable to let player play first or computer play first
+    char d;//char for enter button
+    printf("Press 1 to play first\n");
+    printf("Press 2 to Second Player play first\n");
+    printf("\n Your Choice : ");
+    scanf("%d",&turn);
+
+      switch (turn){//to choose the turn
+      case 1:
+        printf("First player turn: \n");
+        printf("Press enter to roll the dice: \n");
+        getchar();//obtain the enter input
+        if (getchar()=='\n'){//if input is enter button
+        dice();//roll the dice
+        }else printf("Thank you for playing this game");//else will quit the game
+        break;
+
+      case 2:
+      printf("Second player player turn: \n");
+      printf("Press enter to roll the dice: \n");
+      getchar();//obtain the enter input
+      if (getchar()=='\n'){//if input is enter button
+      dice();//roll the dice
+      }else printf("Thank you for playing this game");//else will quit the game
+      break;
+
+      default:
+      printf("Thank you for playing this game");
+      break;
+
+      }
+
+    }//end of the switch case
+
+    //function for declare who play first for 3 players
+    void bot2(){
+        int turn;//declare variable to let player play first or computer play first
+        char d;//char for enter button
+        printf("Press 1 to play first\n");
+        printf("Press 2 to Second Player play first\n");
+        printf("Press 3 to Third Player play first\n");
+        printf("\n Your Choice : ");
+        scanf("%d",&turn);
+
+          switch (turn){//to choose the turn
+          case 1:
+            printf("First Player turn: \n");
+            printf("Press enter to roll the dice: \n");
+            getchar();//obtain the enter input
+            if (getchar()=='\n'){//if input is enter button
+            dice();//roll the dice
+            }else printf("Thank you for playing this game");//else will quit the game
+            break;
+
+          case 2:
+          printf("Second Player turn: \n");
+          printf("Press enter to roll the dice: \n");
+          getchar();//obtain the enter input
+          if (getchar()=='\n'){//if input is enter button
+          dice();//roll the dice
+          }else printf("Thank you for playing this game");//else will quit the game
+          break;
+
+
+          case 3:
+          printf("Third Player turn: \n");
+          printf("Press enter to roll the dice: \n");
+          getchar();//obtain the enter input
+          if (getchar()=='\n'){//if input is enter button
+          dice();//roll the dice
+          }else printf("Thank you for playing this game");//else will quit the game
+          break;
+
+
+          default:
+          printf("Thank you for playing this game");
+          break;
+
+          }
+
+        }//end of the switch case
 
 //void function for 3 players
 void choosesymbol2 (){
@@ -60,11 +143,13 @@ void menu(){
 
     case 2:
     choosesymbol();//have 2 players
-    printf("\nLet's Play");break;
+    printf("\nLet's Play\n");
+    bot1 ();break;
 
     case 3:
     choosesymbol2 ();//have 3 players
-    printf("\nLet's Play");break;
+    printf("\nLet's Play");
+    bot2 ();break;
 
     default://have more than 3 players
     printf("\nThank you for playing this game");
@@ -131,7 +216,7 @@ void main (){
 
 }//end of the process
 
-void bot(int){
+void bot(){
     int turn;//declare variable to let player play first or computer play first
     char d;//char for enter button
     printf("Press 1 to play first\n");
