@@ -3,6 +3,8 @@
 #include <math.h>
 #include <time.h>
 
+void bot (int);//function prototype for bot
+
 struct userInfo{
   char gamePiece; //X, Y, O
   int boardPos; //position of player
@@ -71,8 +73,21 @@ void menu(){
 }//end of the void player
 
 void main (){
+
+
+  printf("\n ||||||||       ||||    ||     ||    ");
+  printf("\n ||             || ||   ||     ||    ");
+  printf("\n ||||||||       ||  ||  ||     ||    ");
+  printf("\n       ||       ||   || ||     ||    ");
+  printf("\n ||||||||       ||    ||||     ||||||");
+
+  printf("\n");
+  printf("\n");
   struct userInfo player[3]; // player[0] is X, player[1] is Y, player [2] is O
 
+
+  printf("\n");
+  printf("\n");
   int a;  //declare the variable for the table
   int s;
   int id;
@@ -116,11 +131,12 @@ void main (){
 
 }//end of the process
 
-void bot(){
+void bot(int){
     int turn;//declare variable to let player play first or computer play first
     char d;//char for enter button
     printf("Press 1 to play first\n");
     printf("Press 2 to let computer player first\n");
+    printf("\n Your Choice : ");
     scanf("%d",&turn);
 
       switch (turn){//to choose the turn
@@ -166,4 +182,3 @@ void dice(){
     }
   }
 }
-
