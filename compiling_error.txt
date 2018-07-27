@@ -1,0 +1,21 @@
+C:\Users\acer\Desktop\atom\groupworkpt\groupassignment.c: In function 'main':
+C:\Users\acer\Desktop\atom\groupworkpt\groupassignment.c:119:7: error: too few arguments to function 'bot'
+       bot();break;//added the function to let player to choose who's going to play first
+       ^~~
+C:\Users\acer\Desktop\atom\groupworkpt\groupassignment.c:6:6: note: declared here
+ void bot (int);//function prototype for bot
+      ^~~
+C:\Users\acer\Desktop\atom\groupworkpt\groupassignment.c: In function 'bot':
+C:\Users\acer\Desktop\atom\groupworkpt\groupassignment.c:134:1: error: parameter name omitted
+ void bot(int){
+ ^~~~
+C:\Users\acer\Desktop\atom\groupworkpt\groupassignment.c:148:9: warning: implicit declaration of function 'dice' [-Wimplicit-function-declaration]
+         dice();//roll the dice
+         ^~~~
+C:\Users\acer\Desktop\atom\groupworkpt\groupassignment.c: At top level:
+C:\Users\acer\Desktop\atom\groupworkpt\groupassignment.c:165:6: warning: conflicting types for 'dice'
+ void dice(){
+      ^~~~
+C:\Users\acer\Desktop\atom\groupworkpt\groupassignment.c:148:9: note: previous implicit declaration of 'dice' was here
+         dice();//roll the dice
+         ^~~~
