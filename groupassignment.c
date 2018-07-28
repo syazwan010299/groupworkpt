@@ -245,7 +245,7 @@ void bot(){
       case 1:
         printf("Your turn: \n");
         dice();//roll the dice
-        printf("%d",diceNumb);
+        //printf("%d",diceNumb);
         break;
 
       case 2:
@@ -264,6 +264,7 @@ void bot(){
 int dice(){
   ///rolling the dice
   //declare the varibale for the dice
+  int diceNumb;
   char c = '\n';
   time_t t;
   srand  ( (unsigned) time(&t));
@@ -358,9 +359,5 @@ void buildBoard(struct userInfo currentB[], int roll, int i){
         boardNumb -= 1;
     }
   }
-<<<<<<< HEAD
   printf("%c rolled a %d", currentB[i].gamePiece, roll);
 }
-=======
-}
->>>>>>> 1ef928d5cbdb8fcaf6bc209c4ed654a78a7b1cb0
