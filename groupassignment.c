@@ -216,7 +216,6 @@ void bot(){
     X.boardPos = 0;
     Y.boardPos = 0;
     int turn;//declare variable to let player play first or computer play first
-    char d;//char for enter button
     printf("\nPress 1 to play first\n");
     printf("Press 2 to let computer player first\n");
     printf("\n Your Choice : ");
@@ -225,16 +224,13 @@ void bot(){
       switch (turn){//to choose the turn
       case 1:
         printf("Your turn: \n");
-        int x = dice();//roll the dice
-        X.boardPos += x;
-        printf("%d",X.boardPos);
+        dice();//roll the dice
+        printf("%d",diceNumb);
         break;
 
       case 2:
         printf("Computer's turn: \n");
-        int y = dice();
-        Y.boardPos += y;
-        printf("%d",Y.boardPos);
+        dice();
         break;
 
       default:
@@ -247,13 +243,13 @@ void bot(){
 
 int dice(){
   ///rolling the dice
-  int diceNumb;  //declare the varibale for the dice
+  //declare the varibale for the dice
   char c = '\n';
   time_t t;
   srand  ( (unsigned) time(&t));
 
   //I'll improve this later
-  printf("Press enter to roll the dice");
+  printf("Press enter to roll the dice\n");
   c=getchar();
 
   //rolling the dice
