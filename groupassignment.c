@@ -270,7 +270,6 @@ int dice(){
 }
 
 void buildBoard(void){
-{
     int numb = 0, flow = 0, boardNumb = 60;
     for(int vert = 0; vert <= 30; vert++, numb++){
     if(vert % 6){
