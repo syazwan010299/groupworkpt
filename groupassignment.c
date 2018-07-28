@@ -223,8 +223,13 @@ void main (){
 
 }//end of the process
 
-void bot(){
+void bot(int a){
+    struct userInfo X,Y;
+    X.boardPos = 0;
+    Y.boardPos = 0;
+    printf("%d",a);
     int turn;//declare variable to let player play first or computer play first
+
     char d;//char for enter button
     printf("\nPress 1 to play first\n");
     printf("Press 2 to let computer player first\n");
@@ -238,6 +243,8 @@ void bot(){
         getchar();//obtain the enter input
         if (getchar()=='\n'){//if input is enter button
         dice();//roll the dice
+        X.boardPos += a;
+        printf("%d",X.boardPos);
         }else printf("Thank you for playing this game");//else will quit the game
         break;
 
@@ -270,7 +277,7 @@ void dice(){
     printf("Rolling the dice...\n");
       printf("\n%d",a);
   c=getchar();
-  break;
-    }
+    break;    }
   }
 }
+
