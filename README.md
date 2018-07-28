@@ -14,13 +14,9 @@ void bot(){
 ///your code
 }
 ```
+You won't need a dice function or anything extra.  
+Just pretend your dice is like 5 so...  
+int diceRoll = 5;  
+As long as it works.
 
-Use the struct to integrate everyone's work.  
-we have player[i].gamePiece //which player we changing values for  
-we have player[i].boardPos //which position on the board do we want to move the player to.
-
-Guys to use the dice function for your own functions:
-
-int variable = dice();
-
-Now variable will randomly be 1 - 6
+Code your won way with your own little individual variables first.
