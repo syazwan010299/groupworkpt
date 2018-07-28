@@ -10,11 +10,32 @@ struct userInfo{
   int special; //Ignore this, this is for missing turns and shit.
 };
 
+//function for table
+void table(){
+
+  printf("\n");
+  printf("\n");
+  int a;  //declare the variable for the table
+  int s;
+  int id;
+  /// to make the table
+  for ( id =0;id < 5;id++){
+    displayline();
+    for( a =0;a<2;a++){
+      printf("\n");
+      for( s =0;s<11;s++){
+        printf("|\t");
+      }//end of the second loop
+    }//end of the first loop
+  }//end of the last loop
+  displayline();
+}
+
 //function for declare who play first for 2 players
 void bot1(){
     int turn;//declare variable to let player play first or computer play first
     char d;//char for enter button
-    printf("Press 1 to play first\n");
+    printf("\nPress 1 to play first\n");
     printf("Press 2 to Second Player play first\n");
     printf("\n Your Choice : ");
     scanf("%d",&turn);
@@ -50,7 +71,7 @@ void bot1(){
     void bot2(){
         int turn;//declare variable to let player play first or computer play first
         char d;//char for enter button
-        printf("Press 1 to play first\n");
+        printf("\nPress 1 to play first\n");
         printf("Press 2 to Second Player play first\n");
         printf("Press 3 to Third Player play first\n");
         printf("\n Your Choice : ");
@@ -171,22 +192,7 @@ void main (){
   struct userInfo player[3]; // player[0] is X, player[1] is Y, player [2] is O
 
 
-  printf("\n");
-  printf("\n");
-  int a;  //declare the variable for the table
-  int s;
-  int id;
-  /// to make the table
-  for ( id =0;id < 5;id++){
-    displayline();
-    for( a =0;a<2;a++){
-      printf("\n");
-      for( s =0;s<11;s++){
-        printf("|\t");
-      }//end of the second loop
-    }//end of the first loop
-  }//end of the last loop
-  displayline();
+
 
   int choice;//declare the variable to choose whether single mode or multiplayer mode
   int turn;//declare the variable to choose whether player or computer play first
@@ -196,6 +202,7 @@ void main (){
   printf("OPTION 2 : Multiplayer\n");
   printf("\nPLEASE CHOOSE YOUR GAME MODE : " );
   scanf("%d",&choice);
+  table ();
 
     switch (choice){
       case 1://single mode
@@ -219,7 +226,7 @@ void main (){
 void bot(){
     int turn;//declare variable to let player play first or computer play first
     char d;//char for enter button
-    printf("Press 1 to play first\n");
+    printf("\nPress 1 to play first\n");
     printf("Press 2 to let computer player first\n");
     printf("\n Your Choice : ");
     scanf("%d",&turn);
