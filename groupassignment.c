@@ -50,7 +50,7 @@ int main (){
   printf("\n ||||||||       ||    ||||     ||||||");
 
   printf("\n\n");
-  
+
   int a;  //declare the variable for the table
   int s;
   int id;
@@ -68,7 +68,7 @@ int main (){
       case 1://single mode
       printf("\nHUMAN VS COMPUTER\n" );
       printf("\nLet's Play\n");
-      //bot(); //??
+      bot();//bot(); //??
       break;//added the function to let player to choose who's going to play first
 
       case 2://multiplayer mode
@@ -139,7 +139,7 @@ void bot2(){
       if (getchar()=='\n'){//if input is enter button
         dice();//roll the dice
       }
-      else 
+      else
         printf("Thank you for playing this game");//else will quit the game
       break;
 
@@ -231,14 +231,11 @@ void menu(){
   }//end of the switch case
 }//end of the void player
 
-void bot(int a){
+void bot(){
     struct userInfo X,Y;
     X.boardPos = 0;
     Y.boardPos = 0;
-    printf("%d",a);
     int turn;//declare variable to let player play first or computer play first
-
-    char d;//char for enter button
     printf("\nPress 1 to play first\n");
     printf("Press 2 to let computer player first\n");
     printf("\n Your Choice : ");
@@ -247,13 +244,8 @@ void bot(int a){
       switch (turn){//to choose the turn
       case 1:
         printf("Your turn: \n");
-        printf("Press enter to roll the dice: \n");
-        getchar();//obtain the enter input
-        if (getchar()=='\n'){//if input is enter button
         dice();//roll the dice
-        X.boardPos += a;
-        printf("%d",X.boardPos);
-        }else printf("Thank you for playing this game");//else will quit the game
+        printf("%d",diceNumb);
         break;
 
       case 2:
@@ -271,13 +263,13 @@ void bot(int a){
 
 int dice(){
   ///rolling the dice
-  int diceNumb;  //declare the varibale for the dice
+  //declare the varibale for the dice
   char c = '\n';
   time_t t;
   srand  ( (unsigned) time(&t));
 
   //I'll improve this later
-  printf("Press enter to roll the dice"); 
+  printf("Press enter to roll the dice\n");
   c=getchar();
 
   //rolling the dice
@@ -356,15 +348,19 @@ void buildBoard(struct userInfo currentB[], int roll, int i){
         printf("+");
       }
       printf("\n");
-      
+
       numb=0;
       flow++;
-      
+
       if(flow % 2)
         boardNumb -= 19;
       else
         boardNumb -= 1;
     }
   }
+<<<<<<< HEAD
   printf("%c rolled a %d", currentB[i].gamePiece, roll);
 }
+=======
+}
+>>>>>>> 1ef928d5cbdb8fcaf6bc209c4ed654a78a7b1cb0
