@@ -1,4 +1,7 @@
 Yo, waddup
+[PLEASE CREATE YOUR OWN COMPILABLE RUNNABLE FUNCTION in SEPERATE .c FILES]
+Think of it as bot(); is in its own .c file so you might have an empty main but you have ONLY your function there.
+Then do things to make it work
 
 Use the struct to integrate everyone's work.
 we have player[i].gamePiece //which player we changing values for
