@@ -2,6 +2,13 @@
 #include <stdlib.h>
 #include <math.h>
 #include <time.h>
+#include <windows.h>
+
+struct userInfo{
+  char gamePiece; //X, Y, O
+  int boardPos; //position of player
+  int special; //Ignore this, this is for missing turns and shit.
+};
 
 void bot1();
 void choosesymbol();
@@ -10,16 +17,31 @@ void displayline();
 void menu();
 void bot();
 int dice();
-void buildBoard();
+void buildBoard(struct userInfo currentB[], int roll, int i);
+int move(struct userInfo currentB[], int i);
 
-struct userInfo{
-  char gamePiece; //X, Y, O
-  int boardPos; //position of player
-  int special; //Ignore this, this is for missing turns and shit.
-};
+
 
 int main (){
+  //initializing everything
   struct userInfo player[3]; // player[0] is X, player[1] is Y, player [2] is O
+  player[0].gamePiece = 'X';
+  player[1].gamePiece = 'Y';
+  player[2].gamePiece = 'O';
+
+  for(int i = 0; i < 3 ; i++)
+  {
+    player[i].boardPos = 0;
+  }
+///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///
+  int yourMove = 0;
+  while(move(player, yourMove)){
+    yourMove++;
+    if(yourMove == 3)
+      yourMove = 0;
+  }
+///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///
+
 
   printf("\n ||||||||       ||||    ||     ||    ");
   printf("\n ||             || ||   ||     ||    ");
@@ -32,8 +54,6 @@ int main (){
   int a;  //declare the variable for the table
   int s;
   int id;
-  /// to make the table
-  buildBoard();
 
   int choice;//declare the variable to choose whether single mode or multiplayer mode
   int turn;//declare the variable to choose whether player or computer play first
@@ -269,22 +289,65 @@ int dice(){
     return diceNumb;
 }
 
-void buildBoard(void){
-    int numb = 0, flow = 0, boardNumb = 60;
-    for(int vert = 0; vert <= 30; vert++, numb++){
-    if(vert % 6){
-        printf("|");
-      for(int row = 0; row < 10; row++)
-      if(numb == 4)
-        if(flow % 2)
-          printf("\t%8d|", boardNumb + row); //odd row starting from 0
-        else
-          printf("\t%8d|", boardNumb - row); //even row starting from 0
-      else
-        printf("\t\t|");
-      printf("\n");
+int move(struct userInfo currentB[], int i){
+    int roll = dice();
+    int flag = 0;
+    for(; roll > 0; roll--){
+        if(++currentB[i].boardPos > 50){
+            currentB[i].boardPos--;
+            flag = 1;
+            break;
+        }
+        Sleep(500);
+        system("cls");
+        
+        buildBoard(currentB, roll, i);
     }
-    else{
+    if(flag == 1){
+        for(; roll > 0; roll--){
+        Sleep(500);
+        system("cls");
+        buildBoard(currentB, roll, i);
+        }
+    }
+    if(currentB[i].boardPos == 50){
+      printf("\t\t\tWinner!");
+      return 0;
+    }
+    else
+      return 1;
+}
+
+void buildBoard(struct userInfo currentB[], int roll, int i){
+    int numb = 0, flow = 0, boardNumb = 60, tile = 0;
+    for(int vert = 0; vert <= 30; vert++, numb++){
+        if(vert % 6){
+            printf("|");
+        for(int row = 0; row < 10; row++){
+          //tile knows what box/square is what number
+          if(flow % 2)
+            tile = boardNumb + row; //odd row starting from 0
+          else
+            tile = boardNumb - row; //even row starting from 0
+
+            if(numb == 1){
+                if(flow % 2)
+                    printf("\t%8d|", tile); //odd row starting from 0
+                else
+                    printf("\t%8d|", tile); //even row starting from 0
+            }
+            else if(numb == 2 && currentB[0].boardPos == tile)
+              printf("\t%-8c|", currentB[0].gamePiece);
+            else if(numb == 3 && currentB[1].boardPos == tile)
+              printf("\t%-8c|", currentB[1].gamePiece);
+            else if(numb == 4 && currentB[2].boardPos == tile)
+              printf("\t%-8c|", currentB[2].gamePiece);
+            else
+                printf("\t\t|");
+        }
+        printf("\n");
+    }
+    else{ //prints +-----+-----+
       for(int horz = 0; horz <= 160; horz++){
         if(horz % 16){
           printf("-");
@@ -303,4 +366,5 @@ void buildBoard(void){
         boardNumb -= 1;
     }
   }
+  printf("%c rolled a %d", currentB[i].gamePiece, roll);
 }
