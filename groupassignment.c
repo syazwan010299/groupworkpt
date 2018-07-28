@@ -10,6 +10,7 @@ void displayline();
 void menu();
 void bot();
 int dice();
+void buildBoard();
 
 struct userInfo{
   char gamePiece; //X, Y, O
@@ -18,7 +19,7 @@ struct userInfo{
 };
 
 int main (){
-
+  struct userInfo player[3]; // player[0] is X, player[1] is Y, player [2] is O
 
   printf("\n ||||||||       ||||    ||     ||    ");
   printf("\n ||             || ||   ||     ||    ");
@@ -26,13 +27,8 @@ int main (){
   printf("\n       ||       ||   || ||     ||    ");
   printf("\n ||||||||       ||    ||||     ||||||");
 
-  printf("\n");
-  printf("\n");
-  struct userInfo player[3]; // player[0] is X, player[1] is Y, player [2] is O
-
-
-  printf("\n");
-  printf("\n");
+  printf("\n\n");
+  
   int a;  //declare the variable for the table
   int s;
   int id;
@@ -194,9 +190,7 @@ void choosesymbol (){
 } //end of the void choosesymbol
 
 //void function to make the table
-void displayline(){
-    printf("\n___________________________________________________________________________________\t\n" );
-}
+
 //void function for how many players in the game
 void menu(){
   int number;//declare the variable for how many players
@@ -205,7 +199,8 @@ void menu(){
 
   switch (number){
     case 1 ://only have one player
-    printf("\nHuman Vs Yourself");break;
+    printf("\nHuman Vs Yourself");
+    break;
 
     case 2:
     choosesymbol();//have 2 players
@@ -267,9 +262,46 @@ int dice(){
 
   //rolling the dice
   do{
-    int diceNumb=rand() % 7;
+    diceNumb=rand() % 7;
     }while(diceNumb == 0);
 
     printf("Rolling the dice...\n%d", diceNumb);
     return diceNumb;
+}
+
+void buildBoard(void){
+{
+    int numb = 0, flow = 0, boardNumb = 60;
+    for(int vert = 0; vert <= 30; vert++, numb++){
+    if(vert % 6){
+        printf("|");
+      for(int row = 0; row < 10; row++)
+      if(numb == 4)
+        if(flow % 2)
+          printf("\t%8d|", boardNumb + row); //odd row starting from 0
+        else
+          printf("\t%8d|", boardNumb - row); //even row starting from 0
+      else
+        printf("\t\t|");
+      printf("\n");
+    }
+    else{
+      for(int horz = 0; horz <= 160; horz++){
+        if(horz % 16){
+          printf("-");
+        }
+        else
+        printf("+");
+      }
+      printf("\n");
+      
+      numb=0;
+      flow++;
+      
+      if(flow % 2)
+        boardNumb -= 19;
+      else
+        boardNumb -= 1;
+    }
+  }
 }
