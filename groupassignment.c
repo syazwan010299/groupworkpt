@@ -21,7 +21,7 @@ int dice();
 void buildBoard(struct userInfo currentB[], int roll, int i);
 int move(struct userInfo currentB[], int i);
 
-int main()
+void main()
 {
   //initializing everything
   struct userInfo player[3]; // player[0] is X, player[1] is Y, player [2] is O
