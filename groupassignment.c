@@ -1,3 +1,13 @@
+/* NAME : 1. MOHD SYAZWAN ZULFARIS BIN ZAINAL ( B04180021)
+          2.
+          3.
+          4.
+          5.
+
+  ASSIGNMENT : GROUP PROJECT ( SNAKE AND LADDER )
+  SUBMISSION DATE : 1/8/2018
+  */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
