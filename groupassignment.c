@@ -413,3 +413,36 @@ void buildBoard(struct userInfo currentB[], int roll, int i)
   }
   printf("%c rolled a %d", currentB[i].gamePiece, roll);
 }
+
+//This is how i designed my board, idk how to make the game identify the special tiles and make the character move accordingly.
+void myboard(){
+
+    printf("Welcome To Snake And Ladders!");
+    printf("\nPress Enter To Roll Dice And Move");
+    printf("\n|------|------|------|------|------|------|------|");
+    printf("\n|      |      |      |      |      |      |      |    DT# = Go down to a tile");
+    printf("\n|  37  |  38  |  39  |  40  |  41  |  42  |  43  |    GT# = Climb up to a tile");
+    printf("\n|      |      |      | DT7  |      |      |      |");
+    printf("\n|------|------|------|------|------|------|------|");
+    printf("\n|      |      |      |      |      |      |      |");
+    printf("\n|  36  |  35  |  34  |  33  |  32  |  31  |  30  |");
+    printf("\n|      |      | DT15 |      | GT39 |      |      |");
+    printf("\n|------|------|------|------|------|------|------|");
+    printf("\n|      |      |      |      |      |      |      |");
+    printf("\n|  23  |  24  |  25  |  26  |  27  |  28  |  29  |");
+    printf("\n|      | DT20 |      |      |      | GT34 |      |");
+    printf("\n|------|------|------|------|------|------|------|");
+    printf("\n|      |      |      |      |      |      |      |");
+    printf("\n|  22  |  21  |  20  |  19  |  18  |  17  |  16  |");
+    printf("\n|      |      |      | DT6  |      |      |      |");
+    printf("\n|------|------|------|------|------|------|------|");
+    printf("\n|      |      |      |      |      |      |      |");
+    printf("\n|  8   |  9   |  10  |  12  |  13  |  14  |  15  |");
+    printf("\n|      | GT26 |      | DT3  |      | GT22 |      |");
+    printf("\n|------|------|------|------|------|------|------|");
+    printf("\n|      |      |      |      |      |      |      |");
+    printf("\n|  7   |  6   |  5   |  4   |  3   |  2   |   1  |");
+    printf("\n|      |      |      | GT14 |      |      |      |");
+    printf("\n|------|------|------|------|------|------|------|");
+
+}
