@@ -27,7 +27,7 @@ int main()
                 printf("%d\n",diceRoll);}
                 X.Pos += diceRoll;
                 printf("Your position: %d\n",X.Pos);
-                if(X.Pos>=100){
+                if(X.Pos >= 100){
                 printf("YOU WIN!!!");
                 break;
                 }
@@ -68,7 +68,7 @@ int main()
                 if(X.Pos>=100){
                 printf("YOU WIN!!!");
                 break;
-                 }else
+               }else
                 continue;
             }while ((X.Pos<100)||(Y.Pos<100));
     }
