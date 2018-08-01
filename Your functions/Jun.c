@@ -73,4 +73,3 @@ int main()
             }while ((X.Pos<100)||(Y.Pos<100));
     }
 }
-
