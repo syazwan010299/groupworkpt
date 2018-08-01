@@ -15,12 +15,13 @@ int main()
     printf("Please choose who to play first: \n");
     printf("Press 1 to play first\n");
     printf("Press 2 to let computer play first\n");
+    printf("\nYour choice : ");
     scanf("%d",&turn);
 
     switch(turn){
     case 1:
             do{
-                printf("your turn : \n");
+                printf("\nyour turn : \n");
                 printf("Press enter to roll dice: \n");
                 c = getch();
                 if (c ='\n'){
