@@ -15,19 +15,20 @@ int main()
     printf("Please choose who to play first: \n");
     printf("Press 1 to play first\n");
     printf("Press 2 to let computer play first\n");
+    printf("\nYour choice : ");
     scanf("%d",&turn);
 
     switch(turn){
     case 1:
             do{
-                printf("your turn : \n");
+                printf("\nyour turn : \n");
                 printf("Press enter to roll dice: \n");
                 c = getch();
                 if (c ='\n'){
                 printf("%d\n",diceRoll);}
                 X.Pos += diceRoll;
                 printf("Your position: %d\n",X.Pos);
-                if(X.Pos>=100){
+                if(X.Pos >= 100){
                 printf("YOU WIN!!!");
                 break;
                 }
@@ -68,9 +69,8 @@ int main()
                 if(X.Pos>=100){
                 printf("YOU WIN!!!");
                 break;
-                 }else
+               }else
                 continue;
             }while ((X.Pos<100)||(Y.Pos<100));
     }
 }
-
