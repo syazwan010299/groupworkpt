@@ -1,5 +1,5 @@
 /* NAME : 1. MOHD SYAZWAN ZULFARIS BIN ZAINAL ( B04180021)
-          2.
+          2. LAU JUN HONG (B04180032)
           3.
           4.
           5.
