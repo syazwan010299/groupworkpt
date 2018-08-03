@@ -1,0 +1,5 @@
+C:\Users\acer\Desktop\atom\groupworkpt\TheRealDeal.c: In function 'move':
+C:\Users\acer\Desktop\atom\groupworkpt\TheRealDeal.c:121:9: warning: implicit declaration of function 'sleep' [-Wimplicit-function-declaration]
+         sleep(7000);
+         ^~~~~
+ld: cannot open output file C:\Users\acer\AppData\Local\Temp\TheRealDeal.exe: Permission denied
