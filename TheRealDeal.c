@@ -2,7 +2,7 @@
           2. LAU JUN HONG (B04180032)
           3. Thiru Veengadeshwar (B04180037)
           4.MUhammad raeqaal bin shariff (B04180050)
-          5.
+          5. MUHAMMAD ADIB MOHD ASRI (B04180013)
 
   ASSIGNMENT : GROUP PROJECT ( SNAKE AND LADDER )
   SUBMISSION DATE : 1/8/2018
