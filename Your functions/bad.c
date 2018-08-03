@@ -148,7 +148,7 @@ int move(struct userInfo currentB[], int i)
     if (currentB[i].boardPos == 50)
     { //If the guy is on 50 Winner!
         printf("\t\t\tWinner!");
-        sleep(7000);
+        sleep(500);
         return 0;
     }
     else
