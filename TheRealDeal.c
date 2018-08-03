@@ -3,6 +3,10 @@
 #include <time.h>
 #include <windows.h>
 
+//Adjustable board size. Default is 5 by 10
+#define BOARDROW 5
+#define BOARDCOL 10
+
 struct userInfo
 {
     char gamePiece; //X, Y, O
@@ -74,13 +78,13 @@ int move(struct userInfo currentB[], int i)
     int flag = 0;        //this is to check if they are over tile 50 (max tile, so i want to bring them backwards)
     for (; roll > 0; roll--)
     {
-        if (++currentB[i].boardPos > 50)
+        if (++currentB[i].boardPos > (BOARDCOL * BOARDROW))
         {
             currentB[i].boardPos--;
             flag = 1;
             break;
         }
-        Sleep(500);
+        sleep(500);
         system("cls");
         buildBoard(currentB, die, i);
     }
@@ -88,25 +92,31 @@ int move(struct userInfo currentB[], int i)
     { // Have to go back if you don't perfectly land on 50
         for (; roll > 0; roll--)
         {
-            currentB[i].boardPos--;
-            Sleep(500);
-            system("cls");
-            buildBoard(currentB, roll, i);
+            if(currentB[i].boardPos == 1)
+                break;
+            else
+            {
+                currentB[i].boardPos--;
+                sleep(500);
+                system("cls");
+                buildBoard(currentB, roll, i);
+            }
         }
         flag = 0;
     }
-
-    if (specialtiles(currentB[i].boardPos))
+    
+    if (specialtiles(currentB[i].boardPos)) //TODO: do while for continuous special tile
     {
+        sleep(500);
         system("cls");
         currentB[i].boardPos = specialtiles(currentB[i].boardPos);
         buildBoard(currentB, 0, i);
     }
-
-    if (currentB[i].boardPos == 50)
+    
+    if (currentB[i].boardPos == BOARDCOL * BOARDROW)
     { //If the guy is on 50 Winner!
+        Sleep(5000);
         printf("\t\t\tWinner!");
-        sleep(7000);
         return 0;
     }
     else
@@ -115,15 +125,15 @@ int move(struct userInfo currentB[], int i)
 
 void buildBoard(struct userInfo currentB[], int roll, int i)
 {
-    int numb = 0, flow = 0, boardNumb = 60, tile = 0, tempChange = 0;
+    int numb = 0, flow = 0, boardNumb = (BOARDROW * BOARDCOL) + BOARDCOL, tile = 0, tempChange = 0;
     //variable tile is the most important, it knows each of the tiles number
-    for (int vert = 0; vert <= 30; vert++, numb++)
+    for (int vert = 0; vert <= (6 * BOARDROW); vert++, numb++)
     { //draws the vertical lines
         if (vert % 6)
         {
             printf("|");
-
-            for (int row = 0; row < 10; row++)
+            
+            for (int row = 0; row < BOARDCOL; row++)
             {
                 ///Tile number
                 if (flow % 2) //finds the right tile number through an algorithm
@@ -133,7 +143,7 @@ void buildBoard(struct userInfo currentB[], int roll, int i)
                 if (numb == 1)
                 { //printf the tile number
                 ///end of Tile number
-
+                
                     if (flow % 2)
                         printf("\t%8d|", tile);
                     else
@@ -154,7 +164,7 @@ void buildBoard(struct userInfo currentB[], int roll, int i)
         }
         else
         { //prints +-----+-----+
-            for (int horz = 0; horz <= 160; horz++)
+            for (int horz = 0; horz <= (16 * BOARDCOL); horz++)
             {
                 if (horz % 16)
                 {
@@ -170,7 +180,7 @@ void buildBoard(struct userInfo currentB[], int roll, int i)
 
             //DA ALGORITHM! MUAHAHAHAAHAH!
             if (flow % 2)
-                boardNumb -= 19;
+                boardNumb -= (2*BOARDCOL) - 1;
             else
                 boardNumb -= 1;
         }
