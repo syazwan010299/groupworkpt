@@ -1,0 +1,30 @@
+C:\Users\acer\Desktop\atom\groupworkpt\Your functions\bad.c: In function 'move':
+C:\Users\acer\Desktop\atom\groupworkpt\Your functions\bad.c:151:9: warning: implicit declaration of function 'sleep' [-Wimplicit-function-declaration]
+         sleep(7000);
+         ^~~~~
+C:\Users\acer\Desktop\atom\groupworkpt\Your functions\bad.c: In function 'bot':
+C:\Users\acer\Desktop\atom\groupworkpt\Your functions\bad.c:302:21: error: redeclaration of 'player' with no linkage
+     struct userInfo player[3]; // player[0] is X, player[1] is Y, player [2] is O
+                     ^~~~~~
+C:\Users\acer\Desktop\atom\groupworkpt\Your functions\bad.c:279:21: note: previous declaration of 'player' was here
+     struct userInfo player[3]; // player[0] is X, player[1] is Y, player [2] is O
+                     ^~~~~~
+C:\Users\acer\Desktop\atom\groupworkpt\Your functions\bad.c:312:9: error: redefinition of 'yourMove'
+     int yourMove = 0; //Who's turn is it?
+         ^~~~~~~~
+C:\Users\acer\Desktop\atom\groupworkpt\Your functions\bad.c:289:9: note: previous definition of 'yourMove' was here
+     int yourMove = 0; //Who's turn is it?
+         ^~~~~~~~
+C:\Users\acer\Desktop\atom\groupworkpt\Your functions\bad.c: In function 'menu':
+C:\Users\acer\Desktop\atom\groupworkpt\Your functions\bad.c:342:5: warning: implicit declaration of function 'choosesymbol' [-Wimplicit-function-declaration]
+     choosesymbol(); //have 2 players
+     ^~~~~~~~~~~~
+C:\Users\acer\Desktop\atom\groupworkpt\Your functions\bad.c:344:5: warning: implicit declaration of function 'bot1' [-Wimplicit-function-declaration]
+     bot1();
+     ^~~~
+C:\Users\acer\Desktop\atom\groupworkpt\Your functions\bad.c:348:5: warning: implicit declaration of function 'choosesymbol2' [-Wimplicit-function-declaration]
+     choosesymbol2(); //have 3 players
+     ^~~~~~~~~~~~~
+C:\Users\acer\Desktop\atom\groupworkpt\Your functions\bad.c:350:5: warning: implicit declaration of function 'bot2' [-Wimplicit-function-declaration]
+     bot2();
+     ^~~~

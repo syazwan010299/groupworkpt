@@ -3,6 +3,10 @@
 #include <time.h>
 #include <windows.h>
 
+void bot();
+void menu();
+
+
 struct userInfo
 {
     char gamePiece; //X, Y, O
@@ -17,6 +21,43 @@ int specialtiles(int x);
 
 int main()
 {
+    printf("\n ||||||||       ||||    ||     ||    ");
+    printf("\n ||             || ||   ||     ||    ");
+    printf("\n ||||||||       ||  ||  ||     ||    ");
+    printf("\n       ||       ||   || ||     ||    ");
+    printf("\n ||||||||       ||    ||||     ||||||");
+
+    printf("\n\n");
+
+    int choice; //declare the variable to choose whether single mode or multiplayer mode
+    int turn;   //declare the variable to choose whether player or computer play first
+
+    //choose whether single mode or multiplayer mode
+    printf("\n\nOPTION 1 : Single player\n");
+    printf("OPTION 2 : Multiplayer\n");
+    printf("\nPLEASE CHOOSE YOUR GAME MODE : ");
+    scanf("%d", &choice);
+
+    switch (choice)
+    {
+    case 1: //single mode
+      printf("\nHUMAN VS COMPUTER\n");
+      printf("\nLet's Play\n");
+      bot(); //bot(); //??
+      break; //added the function to let player to choose who's going to play first
+
+    case 2: //multiplayer mode
+      printf("HUMAN VS HUMAN");
+      menu();
+      break;
+
+    default: //not of them
+      printf("Thank you for playing this game");
+      break;
+
+    } //end of the switch case
+
+
     //initializing everything
     struct userInfo player[3]; // player[0] is X, player[1] is Y, player [2] is O
     player[0].gamePiece = 'X';
@@ -36,7 +77,8 @@ int main()
             yourMove = 0;
     }
     ///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///
-}
+
+}//end of the process
 
 int dice()
 {
@@ -216,3 +258,100 @@ int specialtiles(int x)
         return 0;
     }
 }
+
+
+void bot()
+{
+  struct userInfo X, Y;
+  X.boardPos = 0;
+  Y.boardPos = 0;
+  int turn; //declare variable to let player play first or computer play first
+  printf("\nPress 1 to play first\n");
+  printf("Press 2 to let computer player first\n");
+  printf("\n Your Choice : ");
+  scanf("%d", &turn);
+
+  switch (turn)
+  { //to choose the turn
+  case 1:
+    printf("Your turn: \n");
+    //initializing everything
+    struct userInfo player[3]; // player[0] is X, player[1] is Y, player [2] is O
+    player[0].gamePiece = 'X';
+    player[1].gamePiece = 'Y';
+    player[2].gamePiece = 'O';
+
+    for (int i = 0; i < 3; i++)
+    {
+        player[i].boardPos = 0;
+    }
+    ///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///
+    int yourMove = 0; //Who's turn is it?
+    while (move(player, yourMove))
+    {                      //pass all players user info
+        yourMove++;        //next person's turn
+        if (yourMove == 3) //after the 3rd guy, i want it back to the 1st guy
+            yourMove = 0;
+    }
+    ///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///
+    break;
+
+  case 2:
+    printf("Computer's turn: \n");
+    //initializing everything
+    struct userInfo player[3]; // player[0] is X, player[1] is Y, player [2] is O
+    player[0].gamePiece = 'X';
+    player[1].gamePiece = 'Y';
+    player[2].gamePiece = 'O';
+
+    for (int i = 0; i < 3; i++)
+    {
+        player[i].boardPos = 0;
+    }
+    ///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///
+    int yourMove = 0; //Who's turn is it?
+    while (move(player, yourMove))
+    {                      //pass all players user info
+        yourMove++;        //next person's turn
+        if (yourMove == 3) //after the 3rd guy, i want it back to the 1st guy
+            yourMove = 0;
+    }
+    ///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///DEMO///
+    break;
+
+  default:
+    printf("Thank you for playing this game");
+    break;
+  }
+
+} //end of the switch case
+
+void menu()
+{
+  int number;                               //declare the variable for how many players
+  printf("\n\nHow Many PLayers(MAX 3) : "); //get the number of players from user
+  scanf("%d", &number);
+
+  switch (number)
+  {
+  case 1: //only have one player
+    printf("\nHuman Vs Yourself");
+    break;
+
+  case 2:
+    choosesymbol(); //have 2 players
+    printf("\nLet's Play\n");
+    bot1();
+    break;
+
+  case 3:
+    choosesymbol2(); //have 3 players
+    printf("\nLet's Play");
+    bot2();
+    break;
+
+  default: //have more than 3 players
+    printf("\nThank you for playing this game");
+
+  } //end of the switch case
+} //end of the void player
