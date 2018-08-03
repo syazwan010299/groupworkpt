@@ -1,6 +1,6 @@
 C:\Users\acer\Desktop\atom\groupworkpt\Your functions\bad.c: In function 'move':
 C:\Users\acer\Desktop\atom\groupworkpt\Your functions\bad.c:151:9: warning: implicit declaration of function 'sleep' [-Wimplicit-function-declaration]
-         sleep(7000);
+         sleep(500);
          ^~~~~
 C:\Users\acer\Desktop\atom\groupworkpt\Your functions\bad.c: In function 'bot':
 C:\Users\acer\Desktop\atom\groupworkpt\Your functions\bad.c:302:21: error: redeclaration of 'player' with no linkage
