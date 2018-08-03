@@ -84,7 +84,7 @@ int move(struct userInfo currentB[], int i)
             flag = 1;
             break;
         }
-        sleep(500);
+        Sleep(500);
         system("cls");
         buildBoard(currentB, die, i);
     }
